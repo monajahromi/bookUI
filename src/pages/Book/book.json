@@ -1,0 +1,59 @@
+
+{
+    "total": "0",
+    "total": "48",
+    "page": "1",
+    "books": [
+        { 
+            "id" : 1,
+            "title": "Practical MongoDB",
+            "subtitle": "Architecting, Developing, and Administering MongoDB",
+            "isbn13": "9781484206485",
+            "price": "3522",
+            "authors": [
+                "Vijaya Khisty Bodach"
+               ],
+            "publisher": "Manning",
+            "isbn10": "1617294136",
+            "pages": "384",
+            "year": "2018",
+            "rating": "1",
+            "genre": "Action and Adventure",
+            "image": "https://itbook.store/img/books/9781484206485.png",
+            "url": "https://itbook.store/books/9781484206485"
+        },
+        {
+            "id" : 2,
+            "title": "The Definitive Guide to MongoDB, 3rd Edition",
+            "subtitle": "A complete guide to dealing with Big Data using MongoDB",
+            "isbn13": "9781484211830",
+            "price": "4722",
+            "authors": "Julien Vehent",
+            "publisher": "Manning",
+            "isbn10": "1617294136",
+            "pages": "384",
+            "year": "2018",
+            "rating": "1.5",
+            "genre": "Classics",
+            "image": "https://itbook.store/img/books/9781484211830.png",
+            "url": "https://itbook.store/books/9781484211830"
+        },
+        {
+            "id" : 3,
+            "title": "MongoDB in Action, 2nd Edition",
+            "subtitle": "Covers MongoDB version 3.0",
+            "isbn13": "9781617291609",
+            "price": "32",
+            "authors": "Julien Vehent",
+            "publisher": "Manning",
+            "isbn10": "1617294136",
+            "pages": "384",
+            "year": "2018",
+            "rating": "2",
+            "genre": "Historical Fiction",
+            "image": "https://itbook.store/img/books/9781617291609.png",
+            "url": "https://itbook.store/books/9781617291609"
+        }
+    
+    ]
+}
