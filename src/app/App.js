@@ -6,6 +6,7 @@ import Login from './../authenticationManagment/Login.js';
 import Layout from '../parts/Layout/Layout';
 import Theme from '../theme/Theme.js';
 import './App.css';
+import BookDetail from '../pages/Book/BookDetail.js';
 
 
 
@@ -30,6 +31,16 @@ function App(props) {
             </Layout>
 
           </Route>
+
+          <Route exact path="/bookdetail">
+
+          <Layout>
+            <BookDetail />
+          </Layout>
+
+          </Route>
+
+
           <Route exact path="/loading">
             <div>چند لحظه صبر نمایید...</div>
 

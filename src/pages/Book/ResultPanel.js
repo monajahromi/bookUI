@@ -1,14 +1,18 @@
 import  React , {useReducer} from 'react';
-import { DataGrid, GridToolbar  } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar ,GridOverlay } from '@mui/x-data-grid';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import book from './book.json';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import StarIcon from '@material-ui/icons/Star';
 import StarHalfIcon from '@material-ui/icons/StarHalf';
-import { Divider, Grid } from "@material-ui/core";
+import { ButtonBase, Divider, Grid, IconButton ,Button} from "@material-ui/core";
 import { BookGenresReducer } from './BookGenres.reducer';
 import BookGenres from './../../component/Book/BookGenres.js'
+import { AddShoppingCart } from '@material-ui/icons';
+import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,28 +40,26 @@ export default function ResultPanel() {
     {
       field: 'title',
       headerName: 'Title',
-      width: 150,
+      width: 350,
       editable: true,
     },
     {
-      field: 'subtitle',
-      headerName: 'Subtitle',
-      width: 150,
+      field: 'country',
+      headerName: 'country',
+      width: 200,
       editable: true,
     },
     {
-      field: 'authors',
+      field: 'author',
       headerName: 'Author',
-      type: 'number',
-      width: 110,
+       width: 180,
       editable: true,
     },
     {
       field: 'genre',
       headerName: 'Genre',
       description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
+      width: 200,
       // cellClassName : ()=>classes.cart,
       renderCell : (n)=>BookGenres(n.value)
       
@@ -77,20 +79,54 @@ export default function ResultPanel() {
                            }
       
     },
+    {
+      field: 'id',
+      headerName: 'view',
+      width: 70,
+      renderCell : (n)=> {
+         
+        return <IconButton color="secondary" component ={Link}  to="/bookdetail">
+         <SearchIcon />
+       </IconButton>
+        }
+        
+                     }
+    
   ];
+
+  function CustomLoadingOverlay() {
+    return (
+      <GridOverlay>
+        <div style={{ position: 'absolute', top: 0, width: '100%' }}>
+          <LinearProgress />
+        </div>
+      </GridOverlay>
+    );
+  }
+
+
   return (
     <Grid container direction="column" className="section">
+      
+  
+  
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={book.books}
+        rows={(book.books).map((item, index) => Object.assign(item, {id : index }))}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
         disableSelectionOnClick
+        loading
+        
         components={{
+
+          LoadingOverlay: CustomLoadingOverlay,
           Toolbar: GridToolbar,
-          NoRowsOverlay : () => { return <div style={{backgroundColor : 'red'}}>{"dddno row"}</div>}
+          NoRowsOverlay : () => { return <div style={{backgroundColor : 'red'}}>{"dddno row"}</div>},
+      
+         
         }}
      
       
