@@ -1,22 +1,22 @@
 import { Avatar, Divider, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import StarIcon from '@material-ui/icons/Star';
-import React from 'react';
+import React, { useState } from 'react';
 import book from './book.json';
 import SearchPanel from '../../pages/Book/SearchPanel.js';
 import ResultPanel from "./ResultPanel";
 
 
 const BookList = () => {
-    
+    const [searchTerm , setSearchTerm] = useState();
 
 
 
     return (
         <React.Fragment>
-            <SearchPanel />
+            <SearchPanel setSearchTerm= {setSearchTerm}/>
             
-            <ResultPanel />
+            <ResultPanel  searchTerm ={searchTerm}/>
         </React.Fragment>
     );
 };

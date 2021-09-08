@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useReducer } from "react";
+import tinycolor from 'tinycolor2'
 
 
 // Action and Adventure.
@@ -13,29 +14,45 @@ import { useEffect, useReducer } from "react";
 
 
 const BookGenresReducer = (state, action) => {
+    const lightpink ='#F8BBD0'
+    const lightPurple  = '#E1BEE7'
+    const lightGreen  = '#E8F5E9'
+    const lightYellow  = '#FFF9C4'
+    const lightBlue  = '#B3E5FC'
+
+    const darken =  (color)=>{
+        return  tinycolor(color).darken(50).toString() ; 
+    }
+
+    const genetareColorAndbackgorundcolor = (color) =>{
+        return {  backgroundColor : color,
+                  color: darken(color)  }
+    }
+
     switch (action.type.toLowerCase()) {
         case 'action and adventure':
             return {
                 ...state,
-                color: 'pink',
-                backgroundColor : 'gray'
+                ...genetareColorAndbackgorundcolor( lightBlue),
+                
+                
             }
         case 'classics' :
             return {
                 ...state,
-                color: 'blue',
-                backgroundColor : 'gray'
+                  ...genetareColorAndbackgorundcolor( lightPurple),
+                
             }
         case 'historical fictionics':
                 return {
                     ...state,
-                    color: 'blue',
-                    backgroundColor : 'gray'
+                    ...genetareColorAndbackgorundcolor( lightGreen),
+                    
                 }    
         default: return  {
                 ...state,
-                color: 'red',
-                backgroundColor : 'gray'
+                ...genetareColorAndbackgorundcolor( lightYellow),
+                
             }   
 
     }
@@ -49,6 +66,9 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '10px',
         padding: ' 10px',
         borderRadius: '25px',
+        width: 'fitContent',
+        display: 'inline-block',
+        marginRight: '2px',
     }
 }))
 

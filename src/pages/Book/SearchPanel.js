@@ -12,14 +12,15 @@ const useStyles = makeStyles((theme) => ({
  
 }))
 
-const SearchPanel = () => {
+const SearchPanel = ({setSearchTerm}) => {
     const classes = useStyles();
-    const [searchValue, setSearchValue] = useState() ; 
+ ///   const [searchValue, setSearchValue] = useState() ; 
+    
 
 
     const onSeachClick =(event)=>{
         event.preventDefault()
-        console.log('Done : ' , searchValue)
+       // console.log('Done : ' , searchValue)
     }
 
     return (
@@ -33,7 +34,7 @@ const SearchPanel = () => {
             
             <Grid lg={12} container item   direction="row" alignItems ="center"> 
             <Grid item style={{flexGrow : 1}} lg ={11}>
-                <TextField  label="Outlined" margin="dense" variant="outlined" fullWidth onChange ={(event)=> setSearchValue(event.target.value)} />
+                <TextField  label="Outlined" margin="dense" variant="outlined" fullWidth onChange ={(event)=> setSearchTerm(event.target.value)} />
             </Grid>
 
             <Grid item lg ={1} style={{paddingLeft : '5px' ,textAlign :'right'}} xs="12">

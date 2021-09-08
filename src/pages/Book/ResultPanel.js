@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function ResultPanel() {
+export default function ResultPanel({searchTerm}) {
   const classes = useStyles();
   const columns = [
  
@@ -108,7 +108,7 @@ export default function ResultPanel() {
   return (
     <Grid container direction="column" className="section">
       
-  
+  {searchTerm}
   
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
