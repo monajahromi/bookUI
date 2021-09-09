@@ -18,6 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### tiny color
 ### authentication
 ### API calling
+### back-end is implemented using spring boot on port 8080
 
 also tried to be component based, and increase use of codes.
 
@@ -35,4 +36,3 @@ they havent been done beacuse of lack of time !
 
 
 
-### back-end in implemented using spring boot on port 8080
