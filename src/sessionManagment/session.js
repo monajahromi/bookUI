@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const dataExistInSession =(name) =>{
-    console.log(`sessionStorage.getItem(${name}) : `, sessionStorage.getItem(name))
+  
     if (!sessionStorage.getItem(name)){
         return false ; 
     }

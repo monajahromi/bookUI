@@ -1,6 +1,6 @@
-export const bookstoreAPI= "http://localhost:8080/bookstore/"
+ const bookstoreAPI= "http://localhost:8080/bookstore/"
 
-const baseFetch = (methodName = "", callingType , body) => {
+ export const baseFetch = (methodName = "", callingType , body) => {
 
 
 let param= {
@@ -11,7 +11,7 @@ let param= {
       }
 }
 
-if (callingType == "post")
+if (callingType === "post")
     param  =   { body: JSON.stringify(body),...param  }
 
 

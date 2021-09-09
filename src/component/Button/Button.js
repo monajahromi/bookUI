@@ -33,10 +33,4 @@ const Button = ( {title, onClick , type , ...props }) => {
 }
 
 
-
-Button.propTypes = {
-    title: string.isRequired,
-    onClick: func.isRequired,
-};
-
 export default Button;

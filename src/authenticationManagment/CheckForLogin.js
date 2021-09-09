@@ -2,14 +2,18 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { dataExistInSession } from './../sessionManagment/session.js';
 
+export const isLoggedIn = ()=>{
+   return  dataExistInSession("ncode") &&  dataExistInSession("id_token")
+}
 
-const CheckForLogin = ({ children }) => {
+const CheckForLogin = ({ children , routeAccessability }) => {
 
-    if (!dataExistInSession("ncode") ||   !dataExistInSession("id_token")) {
 
-        return <Redirect to="/login"></Redirect>
-    }
-
+ 
+    
+    
+      if (routeAccessability === "private" && !isLoggedIn() )
+            return <Redirect to="/login"></Redirect>
 
 
 

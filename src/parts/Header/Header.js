@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import logo from './../../asset/images/logo.png';
 import Logout from './../../authenticationManagment/Logout.js';
-import {dataExistInSession} from './../../sessionManagment/session.js'
+import { isLoggedIn } from '../../authenticationManagment/CheckForLogin';
 
 const useStyles = makeStyles((theme) => ({
     header :{
@@ -30,7 +30,7 @@ const Header = () => {
 
                     </p>
 
-                   {dataExistInSession('tocken') &&
+                   {isLoggedIn() &&
                    <Logout/>
                    } 
                     

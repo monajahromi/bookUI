@@ -1,12 +1,12 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import BookList from '../pages/Book/BookList.js';
-import Login from './../authenticationManagment/Login.js';
+import BookDetail from '../pages/Book//BookDetail/BookDetail.js';
+import BookList from '../pages/Book//BookList/BookList.js';
 import Layout from '../parts/Layout/Layout';
 import Theme from '../theme/Theme.js';
+import Login from './../authenticationManagment/Login.js';
 import './App.css';
-import BookDetail from '../pages/Book/BookDetail.js';
 
 
 
@@ -19,43 +19,39 @@ function App(props) {
   return (
 
 
-    <BrowserRouter basename="financial">
+    <BrowserRouter basename="bookstore">
       <Switch>
 
         <ThemeProvider theme={Theme}>
 
           <Route exact path="/">
 
-            <Layout>
+            <Layout routeAccessability="private">
               <BookList />
             </Layout>
 
           </Route>
 
-          <Route exact path="/bookdetail">
+          <Route exact path="/bookdetail:id">
 
-          <Layout>
-            <BookDetail />
-          </Layout>
-
-          </Route>
-
-
-          <Route exact path="/loading">
-            <div>چند لحظه صبر نمایید...</div>
+            <Layout routeAccessability="private">
+              <BookDetail />
+            </Layout>
 
           </Route>
+
 
 
           <Route exact path="/login">
 
 
-            <Layout>
+            <Layout routeAccessability="public">
               <Login />
             </Layout>
 
           </Route>
-          {/* </ThemeProvider> */}
+
+      
 
         </ThemeProvider>
 
